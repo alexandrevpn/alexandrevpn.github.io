@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alexandre Valério</title>
+<meta name="description" content="Alexandre Valério, economist. Research, teaching and materials.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #3d4144;
+    --muted: #7a8288;
+    --rule: #e6e8ea;
+    --link: #2f6f9f;
+    --link-hover: #1d4a6b;
+    --accent-bg: #f4f6f8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --bg: #1c1e21;
+      --text: #d6d9dc;
+      --muted: #9aa1a7;
+      --rule: #34373b;
+      --link: #7fb3dc;
+      --link-hover: #a9cdea;
+      --accent-bg: #25282c;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { font-size: 17px; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+  }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { color: var(--link-hover); text-decoration: underline; }
+  a:focus-visible, summary:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+
+  /* Top bar */
+  .masthead { border-bottom: 1px solid var(--rule); }
+  .masthead-inner {
+    max-width: 1100px; margin: 0 auto; padding: 1rem 1.25rem;
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 1.5rem;
+  }
+  .site-title { font-weight: 700; font-size: 1.15rem; color: var(--text); margin-right: auto; }
+  .site-title:hover { text-decoration: none; color: var(--link); }
+  .nav { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; font-size: .95rem; }
+  .nav a { color: var(--muted); }
+  .nav a.active { color: var(--text); font-weight: 600; }
+
+  /* Page layout */
+  .layout {
+    max-width: 1100px; margin: 0 auto; padding: 2rem 1.25rem 3rem;
+    display: grid; grid-template-columns: 230px 1fr; gap: 3rem;
+  }
+  .sidebar { font-size: .9rem; }
+  .avatar {
+    width: 150px; height: 150px; border-radius: 50%; object-fit: cover;
+    display: block; border: 1px solid var(--rule);
+  }
+  .avatar-fallback {
+    width: 150px; height: 150px; border-radius: 50%; background: var(--accent-bg);
+    display: none; align-items: center; justify-content: center;
+    font-size: 2.5rem; font-weight: 600; color: var(--muted);
+  }
+  .sidebar h2 { font-size: 1.2rem; margin: 1rem 0 .1rem; }
+  .sidebar .role { color: var(--muted); margin: 0 0 1rem; }
+  .follow { list-style: none; padding: 0; margin: 0; }
+  .follow li { margin: .35rem 0; }
+  .follow i { width: 1.3em; color: var(--muted); }
+  .follow a { color: var(--text); }
+  .follow a:hover { color: var(--link); }
+
+  main { min-width: 0; max-width: 46rem; }
+  main h1 { font-size: 1.6rem; margin: 0 0 1rem; }
+  main h2 { font-size: 1.2rem; margin: 2rem 0 .5rem; padding-bottom: .3rem; border-bottom: 1px solid var(--rule); }
+  main h3 { font-size: 1.05rem; margin: 1.5rem 0 .25rem; }
+  .page { display: none; }
+  .page.active { display: block; }
+
+  .paper { margin: 0 0 1.4rem; }
+  .paper-title { font-weight: 600; }
+  .paper-meta { color: var(--muted); font-size: .92rem; }
+  .paper details { margin-top: .3rem; font-size: .92rem; }
+  .paper summary { cursor: pointer; color: var(--link); display: inline; }
+  .paper details p { background: var(--accent-bg); padding: .75rem 1rem; border-radius: 4px; margin: .5rem 0 0; }
+
+  .course-level { color: var(--muted); margin: 0 0 .5rem; }
+  ul.materials { padding-left: 1.2rem; margin: .25rem 0 0; }
+  ul.materials li { margin: .25rem 0; }
+  .empty { color: var(--muted); font-style: italic; }
+
+  footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .85rem; }
+  footer div { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
+
+  @media (max-width: 760px) {
+    .layout { grid-template-columns: 1fr; gap: 1.5rem; padding-top: 1.25rem; }
+    .sidebar { display: grid; grid-template-columns: 90px 1fr; gap: 0 1rem; align-items: center; }
+    .avatar, .avatar-fallback { width: 90px; height: 90px; font-size: 1.6rem; }
+    .sidebar h2 { margin-top: 0; }
+    .follow { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .25rem 1rem; margin-top: .75rem; }
+    .follow li { margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="site-title" href="#home">Alexandre Valério</a>
+    <nav class="nav">
+      <a href="#publications" data-page="publications">Publications</a>
+      <a href="#teaching" data-page="teaching">Teaching</a>
+      <a href="#resources" data-page="resources">More Useful Material</a>
+      <!-- EDITAR: o CV fica em files/CV.pdf -->
+      <a href="files/CV.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- ===== BARRA LATERAL (foto, nome, links) ===== -->
+  <aside class="sidebar">
+    <!-- EDITAR: sua foto vai em files/foto.jpg -->
+    <img class="avatar" src="files/foto.jpg" alt="Alexandre Valério"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="avatar-fallback" aria-hidden="true">AV</div>
+    <div>
+      <h2>Alexandre Valério</h2>
+      <p class="role">FGV EPGE</p>
+    </div>
+    <ul class="follow">
+      <li><a href="mailto:alexandrevpn.econ@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a></li>
+      <li><a href="https://www.linkedin.com/in/alexandre-val%C3%A9rio-b20923227/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
+      <li><a href="https://x.com/alexandrevpn_" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i> X</a></li>
+      <li><a href="https://github.com/alexandrevpn" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a></li>
+      <li><a href="files/CV.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i> CV</a></li>
+    </ul>
+  </aside>
+
+  <main>
+
+    <!-- ===== PÁGINA INICIAL ===== -->
+    <section class="page" id="page-home">
+      <p><strong>Welcome to my homepage!</strong></p>
+      <!-- EDITAR: revise sua bio -->
+      <p>I am an economist at <a href="https://epge.fgv.br/" target="_blank" rel="noopener">FGV EPGE</a> in Rio de Janeiro. My research is in labor economics, with a focus on informality, bargaining, and labor market power in developing economies, using Brazil as the main empirical setting.</p>
+      <p><strong>Research interests:</strong></p>
+      <ul>
+        <li>Labor Economics</li>
+        <li>Macroeconomics</li>
+      </ul>
+    </section>
+
+    <!-- ===== PUBLICATIONS ===== -->
+    <section class="page" id="page-publications">
+      <h1>Publications</h1>
+
+      <h2>Working papers</h2>
+
+      <div class="paper">
+        <div class="paper-title">Outside Options in the Formal and Informal Labor Market</div>
+        <div class="paper-meta">with Valdemar Neto</div>
+        <!-- EDITAR: troque o texto abaixo pelo abstract do paper. Para pôr o PDF, use:
+             <a href="files/papers/ooi.pdf" target="_blank">[PDF]</a> -->
+        <details>
+          <summary>Abstract</summary>
+          <p>Paste the abstract here.</p>
+        </details>
+      </div>
+
+      <h2>Work in progress</h2>
+
+      <!-- EDITAR: confira títulos e coautores -->
+      <div class="paper">
+        <div class="paper-title">The MEI Program and Firm Entry in Brazil</div>
+        <div class="paper-meta">with Valdemar Neto and [coautor]</div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title">Granular Search with Informal Outside Options</div>
+      </div>
+
+      <!-- MODELO para um novo paper (copie e cole):
+      <div class="paper">
+        <div class="paper-title">Título do paper</div>
+        <div class="paper-meta">with Coautor &nbsp; <a href="files/papers/arquivo.pdf" target="_blank">[PDF]</a></div>
+        <details>
+          <summary>Abstract</summary>
+          <p>Texto do abstract.</p>
+        </details>
+      </div>
+      -->
+    </section>
+
+    <!-- ===== TEACHING ===== -->
+    <section class="page" id="page-teaching">
+      <h1>Teaching</h1>
+
+      <h2 id="micro1">Microeconomics I</h2>
+      <p class="course-level">Undergraduate level</p>
+      <!-- EDITAR: para cada material, adicione uma linha assim:
+           <li><a href="files/micro1/lista1.pdf" target="_blank">Problem Set 1</a></li> -->
+      <ul class="materials">
+        <li class="empty">Materials will be posted here.</li>
+      </ul>
+
+      <h2 id="macro3">Macroeconomic Theory III</h2>
+      <p class="course-level">Graduate level</p>
+      <!-- EDITAR: mesmo formato, com arquivos em files/macro3/ -->
+      <ul class="materials">
+        <li class="empty">Materials will be posted here.</li>
+      </ul>
+    </section>
+
+    <!-- ===== MORE USEFUL MATERIAL ===== -->
+    <section class="page" id="page-resources">
+      <h1>More Useful Material</h1>
+      <!-- EDITAR: adicione itens assim:
+           <li><a href="files/material/notas.pdf" target="_blank">Nome do material</a>: breve descrição.</li>
+           Para links externos, use o endereço completo (https://...). -->
+      <ul class="materials">
+        <li class="empty">Materials will be posted here.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<footer><div>© 2026 Alexandre Valério</div></footer>
+
+<script>
+  const pages = ["home", "publications", "teaching", "resources"];
+  function showPage() {
+    let page = location.hash.replace("#", "") || "home";
+    if (page === "micro1" || page === "macro3") page = "teaching";
+    if (!pages.includes(page)) page = "home";
+    document.querySelectorAll(".page").forEach(s => s.classList.toggle("active", s.id === "page-" + page));
+    document.querySelectorAll(".nav a[data-page]").forEach(a => a.classList.toggle("active", a.dataset.page === page));
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener("hashchange", showPage);
+  showPage();
+</script>
+</body>
+</html>

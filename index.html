@@ -3,10 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Título que aparece na aba do navegador -->
 <title>Alexandre Valério</title>
+
 <meta name="description" content="Alexandre Valério, economist. Research, teaching and materials.">
+
+<!-- Ícones (e-mail, LinkedIn, GitHub etc.). Não precisa mexer. -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+<!--
+##########################################################################
+##                                                                      ##
+##   ESTILO VISUAL (cores, fontes, espaçamentos)                        ##
+##                                                                      ##
+##   Você normalmente NÃO precisa mexer aqui.                           ##
+##   O conteúdo do site (textos, papers, materiais) fica mais abaixo,   ##
+##   procure por "CONTEÚDO DO SITE".                                    ##
+##                                                                      ##
+##########################################################################
+-->
 <style>
+
+  /* ---------- Cores (modo claro) ---------- */
   :root {
     --bg: #ffffff;
     --text: #3d4144;
@@ -16,6 +36,8 @@
     --link-hover: #1d4a6b;
     --accent-bg: #f4f6f8;
   }
+
+  /* ---------- Cores (modo escuro, automático) ---------- */
   @media (prefers-color-scheme: dark) {
     :root {
       color-scheme: dark;
@@ -28,59 +50,99 @@
       --accent-bg: #25282c;
     }
   }
+
+  /* ---------- Base ---------- */
   * { box-sizing: border-box; }
+
   html { font-size: 17px; }
+
   body {
-    margin: 0; background: var(--bg); color: var(--text);
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     line-height: 1.6;
   }
+
   a { color: var(--link); text-decoration: none; }
   a:hover { color: var(--link-hover); text-decoration: underline; }
   a:focus-visible, summary:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
 
-  /* Top bar */
+  /* ---------- Barra do topo ---------- */
   .masthead { border-bottom: 1px solid var(--rule); }
+
   .masthead-inner {
-    max-width: 1100px; margin: 0 auto; padding: 1rem 1.25rem;
-    display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .5rem 1.5rem;
   }
+
   .site-title { font-weight: 700; font-size: 1.15rem; color: var(--text); margin-right: auto; }
   .site-title:hover { text-decoration: none; color: var(--link); }
+
   .nav { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; font-size: .95rem; }
   .nav a { color: var(--muted); }
   .nav a.active { color: var(--text); font-weight: 600; }
 
-  /* Page layout */
+  /* ---------- Layout (barra lateral + conteúdo) ---------- */
   .layout {
-    max-width: 1100px; margin: 0 auto; padding: 2rem 1.25rem 3rem;
-    display: grid; grid-template-columns: 230px 1fr; gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 3rem;
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    gap: 3rem;
   }
+
+  /* ---------- Barra lateral ---------- */
   .sidebar { font-size: .9rem; }
+
   .avatar {
-    width: 150px; height: 150px; border-radius: 50%; object-fit: cover;
-    display: block; border: 1px solid var(--rule);
+    width: 150px; height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    border: 1px solid var(--rule);
   }
+
   .avatar-fallback {
-    width: 150px; height: 150px; border-radius: 50%; background: var(--accent-bg);
-    display: none; align-items: center; justify-content: center;
-    font-size: 2.5rem; font-weight: 600; color: var(--muted);
+    width: 150px; height: 150px;
+    border-radius: 50%;
+    background: var(--accent-bg);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--muted);
   }
+
   .sidebar h2 { font-size: 1.2rem; margin: 1rem 0 .1rem; }
   .sidebar .role { color: var(--muted); margin: 0 0 1rem; }
+
   .follow { list-style: none; padding: 0; margin: 0; }
   .follow li { margin: .35rem 0; }
   .follow i { width: 1.3em; color: var(--muted); }
   .follow a { color: var(--text); }
   .follow a:hover { color: var(--link); }
 
+  /* ---------- Conteúdo principal ---------- */
   main { min-width: 0; max-width: 46rem; }
+
   main h1 { font-size: 1.6rem; margin: 0 0 1rem; }
   main h2 { font-size: 1.2rem; margin: 2rem 0 .5rem; padding-bottom: .3rem; border-bottom: 1px solid var(--rule); }
   main h3 { font-size: 1.05rem; margin: 1.5rem 0 .25rem; }
+  main h4 { font-size: .95rem; margin: 1rem 0 .1rem; color: var(--muted); font-weight: 600; }
+
+  /* Cada aba é uma "page"; só a aba ativa aparece */
   .page { display: none; }
   .page.active { display: block; }
 
+  /* ---------- Papers ---------- */
   .paper { margin: 0 0 1.4rem; }
   .paper-title { font-weight: 600; }
   .paper-meta { color: var(--muted); font-size: .92rem; }
@@ -88,14 +150,17 @@
   .paper summary { cursor: pointer; color: var(--link); display: inline; }
   .paper details p { background: var(--accent-bg); padding: .75rem 1rem; border-radius: 4px; margin: .5rem 0 0; }
 
+  /* ---------- Listas de materiais ---------- */
   .course-level { color: var(--muted); margin: 0 0 .5rem; }
   ul.materials { padding-left: 1.2rem; margin: .25rem 0 0; }
   ul.materials li { margin: .25rem 0; }
   .empty { color: var(--muted); font-style: italic; }
 
+  /* ---------- Rodapé ---------- */
   footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .85rem; }
   footer div { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
 
+  /* ---------- Celular ---------- */
   @media (max-width: 760px) {
     .layout { grid-template-columns: 1fr; gap: 1.5rem; padding-top: 1.25rem; }
     .sidebar { display: grid; grid-template-columns: 90px 1fr; gap: 0 1rem; align-items: center; }
@@ -104,35 +169,81 @@
     .follow { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .25rem 1rem; margin-top: .75rem; }
     .follow li { margin: 0; }
   }
+
 </style>
 </head>
 <body>
 
+
+
+<!--
+##########################################################################
+##########################################################################
+##                                                                      ##
+##   CONTEÚDO DO SITE COMEÇA AQUI                                       ##
+##                                                                      ##
+##   Regras de ouro:                                                    ##
+##                                                                      ##
+##   1. Cada aba fica entre uma linha  <section class="page" ...>       ##
+##      e uma linha  </section>.  NUNCA apague essas duas linhas.       ##
+##                                                                      ##
+##   2. Nomes de arquivos: sem espaços e sem acentos.                   ##
+##      Bom: lista1.pdf     Ruim: Lista 1 - Micro.pdf                   ##
+##                                                                      ##
+##   3. Textos de comentário (como este) não aparecem no site.         ##
+##                                                                      ##
+##   4. Para achar uma parte, use Ctrl + F e procure o nome dela,       ##
+##      por exemplo "ABA: TEACHING".                                    ##
+##                                                                      ##
+##########################################################################
+##########################################################################
+-->
+
+
+
+<!-- ======================================================================
+     MENU DO TOPO
+     Para mudar o nome de uma aba, troque só o texto entre > e </a>.
+     ====================================================================== -->
+
 <header class="masthead">
   <div class="masthead-inner">
+
     <a class="site-title" href="#home">Alexandre Valério</a>
+
     <nav class="nav">
       <a href="#publications" data-page="publications">Publications</a>
-      <a href="#teaching" data-page="teaching">Teaching</a>
-      <a href="#resources" data-page="resources">More Useful Material</a>
-      <!-- EDITAR: o CV fica em files/CV.pdf -->
-      <a href="files/CV.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="#teaching"     data-page="teaching">Teaching</a>
+      <a href="#resources"    data-page="resources">Useful Material</a>
+      <a href="files/CV.pdf" target="_blank" rel="noopener">CV</a>   <!-- o CV fica em files/CV.pdf -->
     </nav>
+
   </div>
 </header>
 
+
+
 <div class="layout">
 
-  <!-- ===== BARRA LATERAL (foto, nome, links) ===== -->
+
+
+  <!-- ======================================================================
+       BARRA LATERAL (foto, nome, cargo, links)
+       - Foto: arquivo files/foto.jpg
+       - Cargo: troque o texto "FGV EPGE"
+       ====================================================================== -->
+
   <aside class="sidebar">
-    <!-- EDITAR: sua foto vai em files/foto.jpg -->
+
     <img class="avatar" src="files/foto.jpg" alt="Alexandre Valério"
          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
     <div class="avatar-fallback" aria-hidden="true">AV</div>
+
     <div>
       <h2>Alexandre Valério</h2>
       <p class="role">FGV EPGE</p>
     </div>
+
     <ul class="follow">
       <li><a href="mailto:alexandrevpn.econ@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a></li>
       <li><a href="https://www.linkedin.com/in/alexandre-val%C3%A9rio-b20923227/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
@@ -140,48 +251,93 @@
       <li><a href="https://github.com/alexandrevpn" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a></li>
       <li><a href="files/CV.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i> CV</a></li>
     </ul>
+
   </aside>
+
+
 
   <main>
 
-    <!-- ===== PÁGINA INICIAL ===== -->
+
+
+    <!-- ######################################################################
+         ##                                                                  ##
+         ##   ABA: HOME (página inicial)                                     ##
+         ##                                                                  ##
+         ###################################################################### -->
+
     <section class="page" id="page-home">
+
       <p><strong>Welcome to my homepage!</strong></p>
-      <!-- EDITAR: revise sua bio -->
-      <p>I am an economist at <a href="https://epge.fgv.br/" target="_blank" rel="noopener">FGV EPGE</a> in Rio de Janeiro. My research is in labor economics, with a focus on informality, bargaining, and labor market power in developing economies, using Brazil as the main empirical setting.</p>
+
+      <!-- >>> Sua bio. Edite o texto abaixo à vontade. -->
+      <p>
+        I am an economist at <a href="https://epge.fgv.br/" target="_blank" rel="noopener">FGV EPGE</a> in Rio de Janeiro.
+        My research is in labor economics, with a focus on informality, bargaining, and labor market power
+        in developing economies, using Brazil as the main empirical setting.
+      </p>
+
       <p><strong>Research interests:</strong></p>
+
+      <!-- >>> Para adicionar um interesse, copie uma linha <li>...</li> -->
       <ul>
         <li>Labor Economics</li>
         <li>Macroeconomics</li>
       </ul>
-    </section>
 
-    <!-- ===== PUBLICATIONS ===== -->
+    </section>
+    <!-- ===== FIM DA ABA: HOME ===== -->
+
+
+
+    <!-- ######################################################################
+         ##                                                                  ##
+         ##   ABA: PUBLICATIONS                                              ##
+         ##                                                                  ##
+         ###################################################################### -->
+
     <section class="page" id="page-publications">
+
       <h1>Publications</h1>
+
+
+      <!-- ------------------------------------------------------------------
+           WORKING PAPERS
+           ------------------------------------------------------------------ -->
 
       <h2>Working papers</h2>
 
+
+      <!-- >>> Paper 1 -->
       <div class="paper">
         <div class="paper-title">The Structure of Outside Options in Segmented Labor Markets</div>
         <div class="paper-meta">with Valdemar Neto</div>
-        <!-- EDITAR: troque o texto abaixo pelo abstract do paper. Para pôr o PDF, use:
-             <a href="files/papers/ooi.pdf" target="_blank">[PDF]</a> -->
+        <!-- Para pôr o PDF, adicione na linha de cima, depois do nome:
+             &nbsp; <a href="files/papers/ooi.pdf" target="_blank">[PDF]</a>       -->
         <details>
           <summary>Abstract</summary>
-          <p>Paste the abstract here.</p>
+          <p>Paste the abstract here.</p>   <!-- >>> COLE O ABSTRACT AQUI -->
         </details>
       </div>
 
+
+      <!-- ------------------------------------------------------------------
+           WORK IN PROGRESS
+           ------------------------------------------------------------------ -->
+
       <h2>Work in progress</h2>
 
-      <!-- EDITAR: confira títulos e coautores -->
+
+      <!-- >>> Paper 2 -->
       <div class="paper">
         <div class="paper-title">Formalization and Financial Deepening: Evidence from Brazil's MEI Program</div>
-        <div class="paper-meta">with Valdemar Neto and [coautor]</div>
+        <div class="paper-meta">with Valdemar Neto and [coautor]</div>   <!-- >>> TROQUE [coautor] PELO NOME -->
       </div>
 
-      <!-- MODELO para um novo paper (copie e cole):
+
+      <!-- >>> MODELO PARA UM NOVO PAPER: copie o bloco abaixo (sem as linhas de comentário)
+               e cole acima, dentro de "Working papers" ou "Work in progress".
+
       <div class="paper">
         <div class="paper-title">Título do paper</div>
         <div class="paper-meta">with Coautor &nbsp; <a href="files/papers/arquivo.pdf" target="_blank">[PDF]</a></div>
@@ -190,59 +346,168 @@
           <p>Texto do abstract.</p>
         </details>
       </div>
+
       -->
+
     </section>
+    <!-- ===== FIM DA ABA: PUBLICATIONS ===== -->
+
+
+
+    <!-- ######################################################################
+         ##                                                                  ##
+         ##   ABA: TEACHING                                                  ##
+         ##                                                                  ##
+         ##   Arquivos dos cursos:                                           ##
+         ##     Microeconomics I        ->  pasta files/micro1/              ##
+         ##     Macroeconomic Theory III ->  pasta files/macro3/             ##
+         ##                                                                  ##
+         ###################################################################### -->
+
+    <section class="page" id="page-teaching">
 
       <h1>Teaching</h1>
+
+
+      <!-- ------------------------------------------------------------------
+           INSTRUCTOR
+           ------------------------------------------------------------------ -->
 
       <h2>Instructor</h2>
       <p class="empty">No courses taught yet.</p>
 
+
+      <!-- ------------------------------------------------------------------
+           TEACHING ASSISTANT
+           ------------------------------------------------------------------ -->
+
       <h2>Teaching Assistant</h2>
 
+
+      <!-- >>> CURSO: Microeconomics I -->
       <h3 id="micro1">Microeconomics I (Undergraduate Level)</h3>
       <p class="course-level">FGV EPGE, Fall 2024</p>
-      <!-- EDITAR: para cada material, adicione uma linha assim:
-           <li><a href="files/micro1/lista1.pdf" target="_blank">Problem Set 1</a></li> -->
+
       <ul class="materials">
+        <!-- >>> MATERIAIS DE MICRO I: apague a linha "Materials will be posted here"
+                 quando adicionar o primeiro material. Modelo:
+                 <li><a href="files/micro1/lista1.pdf" target="_blank">Problem Set 1</a></li>   -->
         <li class="empty">Materials will be posted here.</li>
       </ul>
 
+
+      <!-- >>> CURSO: Macroeconomic Theory III -->
       <h3 id="macro3">Macroeconomic Theory III (Graduate Level)</h3>
       <p class="course-level">FGV EPGE, Fall 2024</p>
-      <!-- EDITAR: mesmo formato, com arquivos em files/macro3/ -->
+
       <ul class="materials">
+        <!-- >>> MATERIAIS DE MACRO III: mesmo formato. Modelo:
+                 <li><a href="files/macro3/lista1.pdf" target="_blank">Problem Set 1</a></li>   -->
         <li class="empty">Materials will be posted here.</li>
       </ul>
 
-    <!-- ===== MORE USEFUL MATERIAL ===== -->
-    <section class="page" id="page-resources">
-      <h1>More Useful Material</h1>
-      <!-- EDITAR: adicione itens assim:
-           <li><a href="files/material/notas.pdf" target="_blank">Nome do material</a>: breve descrição.</li>
-           Para links externos, use o endereço completo (https://...). -->
-      <ul class="materials">
-        <li class="empty">Materials will be posted here.</li>
-      </ul>
     </section>
+    <!-- ===== FIM DA ABA: TEACHING ===== -->
+
+
+
+    <!-- ######################################################################
+         ##                                                                  ##
+         ##   ABA: USEFUL MATERIAL                                           ##
+         ##                                                                  ##
+         ##   Arquivos:                                                      ##
+         ##     Numerical Methods     ->  pasta files/numerical-methods/     ##
+         ##     Market Power Measures ->  pasta files/market-power/          ##
+         ##                                                                  ##
+         ##   Códigos: pode subir o arquivo (.jl, .R, .py, .m) na pasta,     ##
+         ##   ou colocar o link de um repositório do GitHub.                 ##
+         ##                                                                  ##
+         ###################################################################### -->
+
+    <section class="page" id="page-resources">
+
+      <h1>Useful Material</h1>
+
+
+      <!-- ------------------------------------------------------------------
+           BLOCO: Numerical Methods (2023)
+           ------------------------------------------------------------------ -->
+
+      <h2>Numerical Methods (2023)</h2>
+
+
+      <h4>Problem sets</h4>
+      <ul class="materials">
+        <!-- >>> PROBLEM SETS: apague a linha "Coming soon" ao adicionar o primeiro. Modelos:
+                 <li><a href="files/numerical-methods/ps1.pdf" target="_blank">Problem Set 1</a></li>
+                 <li><a href="files/numerical-methods/ps1_code.jl" target="_blank">Problem Set 1 (code)</a></li>   -->
+        <li class="empty">Coming soon.</li>
+      </ul>
+
+
+      <h4>Slides</h4>
+      <ul class="materials">
+        <!-- >>> SLIDES: modelo:
+                 <li><a href="files/numerical-methods/slides1.pdf" target="_blank">Lecture 1: Title</a></li>   -->
+        <li class="empty">Coming soon.</li>
+      </ul>
+
+
+      <!-- ------------------------------------------------------------------
+           BLOCO: Market Power Measures
+           ------------------------------------------------------------------ -->
+
+      <h2>Market Power Measures</h2>
+
+      <ul class="materials">
+        <!-- >>> MATERIAIS DE MARKET POWER: modelos:
+                 <li><a href="files/market-power/notes.pdf" target="_blank">Notes on market power measures</a></li>
+                 <li><a href="https://github.com/alexandrevpn/NOME-DO-REPOSITORIO" target="_blank">Code (GitHub)</a></li>   -->
+        <li class="empty">Coming soon.</li>
+      </ul>
+
+
+      <!-- >>> PARA CRIAR UM NOVO BLOCO nesta aba, copie a partir de
+               "BLOCO: Market Power Measures" até o </ul> dele, cole aqui e troque o título. -->
+
+    </section>
+    <!-- ===== FIM DA ABA: USEFUL MATERIAL ===== -->
+
+
 
   </main>
 </div>
 
+
+
+<!-- ======================================================================
+     RODAPÉ
+     ====================================================================== -->
+
 <footer><div>© 2026 Alexandre Valério</div></footer>
+
+
+
+<!-- ======================================================================
+     CÓDIGO QUE TROCA AS ABAS. NÃO PRECISA MEXER.
+     ====================================================================== -->
 
 <script>
   const pages = ["home", "publications", "teaching", "resources"];
+
   function showPage() {
     let page = location.hash.replace("#", "") || "home";
     if (page === "micro1" || page === "macro3") page = "teaching";
     if (!pages.includes(page)) page = "home";
+
     document.querySelectorAll(".page").forEach(s => s.classList.toggle("active", s.id === "page-" + page));
     document.querySelectorAll(".nav a[data-page]").forEach(a => a.classList.toggle("active", a.dataset.page === page));
     window.scrollTo(0, 0);
   }
+
   window.addEventListener("hashchange", showPage);
   showPage();
 </script>
+
 </body>
 </html>

@@ -156,6 +156,16 @@
   ul.materials li { margin: .25rem 0; }
   .empty { color: var(--muted); font-style: italic; }
 
+  /* ---------- Navegação dos materiais ---------- */
+  .resource-categories h3 { margin: 0; }
+  .resource-categories a {
+    display: block;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .back-link { margin: 0 0 1.25rem; font-size: .9rem; }
+  .page .materials li { margin-bottom: .85rem; }
+
   /* ---------- Rodapé ---------- */
   footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .85rem; }
   footer div { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
@@ -365,48 +375,43 @@
          ###################################################################### -->
 
     <section class="page" id="page-teaching">
-
       <h1>Teaching</h1>
-
-
-      <!-- ------------------------------------------------------------------
-           INSTRUCTOR
-           ------------------------------------------------------------------ -->
-
       <h2>Instructor</h2>
       <p class="empty">No courses taught yet.</p>
-
-
-      <!-- ------------------------------------------------------------------
-           TEACHING ASSISTANT
-           ------------------------------------------------------------------ -->
-
       <h2>Teaching Assistant</h2>
+      <nav class="resource-categories" aria-label="Teaching assistant courses">
+        <h3><a href="#micro1">Microeconomics I (Undergraduate Level)</a></h3>
+        <p class="course-level">FGV EPGE, Fall 2024</p>
+        <h3><a href="#macro3">Macroeconomic Theory III (Graduate Level)</a></h3>
+        <p class="course-level">FGV EPGE, Fall 2024</p>
+      </nav>
+    </section>
 
-
-      <!-- >>> CURSO: Microeconomics I -->
-      <h3 id="micro1">Microeconomics I (Undergraduate Level)</h3>
+    <!-- Materiais da monitoria: Microeconomics I (Undergraduate Level) -->
+    <section class="page" id="page-micro1">
+      <p class="back-link"><a href="#teaching">← Back to Teaching</a></p>
+      <h1 tabindex="-1">Microeconomics I (Undergraduate Level)</h1>
       <p class="course-level">FGV EPGE, Fall 2024</p>
-
       <ul class="materials">
         <!-- >>> MATERIAIS DE MICRO I: apague a linha "Materials will be posted here"
                  quando adicionar o primeiro material. Modelo:
                  <li><a href="files/micro1/lista1.pdf" target="_blank">Problem Set 1</a></li>   -->
         <li class="empty">Materials will be posted here.</li>
       </ul>
+    </section>
 
-
-      <!-- >>> CURSO: Macroeconomic Theory III -->
-      <h3 id="macro3">Macroeconomic Theory III (Graduate Level)</h3>
+    <!-- Materiais da monitoria: Macroeconomic Theory III (Graduate Level) -->
+    <section class="page" id="page-macro3">
+      <p class="back-link"><a href="#teaching">← Back to Teaching</a></p>
+      <h1 tabindex="-1">Macroeconomic Theory III (Graduate Level)</h1>
       <p class="course-level">FGV EPGE, Fall 2024</p>
-
       <ul class="materials">
         <!-- >>> MATERIAIS DE MACRO III: mesmo formato. Modelo:
                  <li><a href="files/macro3/lista1.pdf" target="_blank">Problem Set 1</a></li>   -->
         <li class="empty">Materials will be posted here.</li>
       </ul>
-
     </section>
+
     <!-- ===== FIM DA ABA: TEACHING ===== -->
 
 
@@ -424,55 +429,33 @@
          ##                                                                  ##
          ###################################################################### -->
 
+    <!-- Useful Material: clique em uma categoria para abrir seus materiais. -->
     <section class="page" id="page-resources">
-
       <h1>Useful Material</h1>
+      <nav class="resource-categories" aria-label="Useful materials">
+        <h2><a href="#labor-market-measures">Useful Labor Market Measures</a></h2>
+        <h2><a href="#numerical-methods">Numerical Methods (2023)</a></h2>
+      </nav>
+    </section>
 
+    <section class="page" id="page-labor-market-measures">
+      <p class="back-link"><a href="#resources">← Back to Useful Material</a></p>
+      <h1 tabindex="-1">Useful Labor Market Measures</h1>
+      <nav class="resource-categories" aria-label="Labor market materials">
+        <h3><a href="#concentration">Concentration Measures</a></h3>
+        <h3><a href="#firm-dynamics">Firm Dynamics and Job Flows</a></h3>
+        <h3><a href="#firm-performance">Firm Performance</a></h3>
+        <h3><a href="#market-power">Market Power</a></h3>
+      </nav>
+    </section>
 
-      <!-- ------------------------------------------------------------------
-           BLOCO: Numerical Methods (2023)
-           ------------------------------------------------------------------ -->
+    <!-- Páginas das categorias. Publique os arquivos antes de ativar seus links.
+         Arquivos: files/labor-market-measures/
+         Para cada medida, descomente os links e remova a linha "coming soon". -->
 
-      <h2>Numerical Methods (2023)</h2>
-
-
-      <h4>Problem sets</h4>
-      <ul class="materials">
-        <!-- >>> PROBLEM SETS: apague a linha "Coming soon" ao adicionar o primeiro. Modelos:
-                 <li><a href="files/numerical-methods/ps1.pdf" target="_blank">Problem Set 1</a></li>
-                 <li><a href="files/numerical-methods/ps1_code.jl" target="_blank">Problem Set 1 (code)</a></li>   -->
-        <li class="empty">Coming soon.</li>
-      </ul>
-
-
-      <h4>Slides</h4>
-      <ul class="materials">
-        <!-- >>> SLIDES: modelo:
-                 <li><a href="files/numerical-methods/slides1.pdf" target="_blank">Lecture 1: Title</a></li>   -->
-        <li class="empty">Coming soon.</li>
-      </ul>
-
-
-      <!-- ------------------------------------------------------------------
-           BLOCO: Useful Labor Market Measures
-
-           Arquivos futuros: files/labor-market-measures/
-           Cada medida terá uma nota em PDF e um script em R.
-           Os links ficam comentados até os arquivos estarem disponíveis.
-           Para publicar uma medida:
-           1. Envie o PDF e o script R para a pasta acima.
-           2. Descomente os dois links correspondentes.
-           3. Apague a linha "Notes (PDF) and R code: coming soon."
-           ------------------------------------------------------------------ -->
-
-      <h2>Useful Labor Market Measures</h2>
-      <p>
-        A collection of methodological notes and R examples covering market
-        concentration, firm dynamics, job flows, firm performance, and market power.
-        Materials will be added progressively.
-      </p>
-
-      <h3>Concentration Measures</h3>
+    <section class="page" id="page-concentration">
+      <p class="back-link"><a href="#labor-market-measures">← Back to Useful Labor Market Measures</a></p>
+      <h1 tabindex="-1">Concentration Measures</h1>
       <ul class="materials">
         <li>
           <strong>Revenue Market Share</strong>
@@ -540,8 +523,11 @@
           -->
         </li>
       </ul>
+    </section>
 
-      <h3>Firm Dynamics and Job Flows</h3>
+    <section class="page" id="page-firm-dynamics">
+      <p class="back-link"><a href="#labor-market-measures">← Back to Useful Labor Market Measures</a></p>
+      <h1 tabindex="-1">Firm Dynamics and Job Flows</h1>
       <ul class="materials">
         <li>
           <strong>Turnover at the Top</strong>
@@ -654,8 +640,11 @@
           -->
         </li>
       </ul>
+    </section>
 
-      <h3>Firm Performance</h3>
+    <section class="page" id="page-firm-performance">
+      <p class="back-link"><a href="#labor-market-measures">← Back to Useful Labor Market Measures</a></p>
+      <h1 tabindex="-1">Firm Performance</h1>
       <ul class="materials">
         <li>
           <strong>Total Factor Productivity (TFP)</strong>
@@ -690,8 +679,11 @@
           -->
         </li>
       </ul>
+    </section>
 
-      <h3>Market Power</h3>
+    <section class="page" id="page-market-power">
+      <p class="back-link"><a href="#labor-market-measures">← Back to Useful Labor Market Measures</a></p>
+      <h1 tabindex="-1">Market Power</h1>
       <ul class="materials">
         <li>
           <strong>Markup Estimation: Accounting Approach</strong>
@@ -727,9 +719,39 @@
           -->
         </li>
       </ul>
-
     </section>
-    <!-- ===== FIM DA ABA: USEFUL MATERIAL ===== -->
+
+    <section class="page" id="page-numerical-methods">
+      <p class="back-link"><a href="#resources">← Back to Useful Material</a></p>
+      <h1 tabindex="-1">Numerical Methods (2023)</h1>
+      <nav class="resource-categories" aria-label="Numerical Methods materials">
+        <h3><a href="#numerical-problem-sets">Problem sets</a></h3>
+        <h3><a href="#numerical-slides">Slides</a></h3>
+      </nav>
+    </section>
+
+    <section class="page" id="page-numerical-problem-sets">
+      <p class="back-link"><a href="#numerical-methods">← Back to Numerical Methods</a></p>
+      <h1 tabindex="-1">Numerical Methods (2023): Problem sets</h1>
+      <ul class="materials">
+        <!-- >>> PROBLEM SETS: apague a linha "Coming soon" ao adicionar o primeiro. Modelos:
+                 <li><a href="files/numerical-methods/ps1.pdf" target="_blank">Problem Set 1</a></li>
+                 <li><a href="files/numerical-methods/ps1_code.jl" target="_blank">Problem Set 1 (code)</a></li>   -->
+        <li class="empty">Coming soon.</li>
+      </ul>
+    </section>
+
+    <section class="page" id="page-numerical-slides">
+      <p class="back-link"><a href="#numerical-methods">← Back to Numerical Methods</a></p>
+      <h1 tabindex="-1">Numerical Methods (2023): Slides</h1>
+      <ul class="materials">
+        <!-- >>> SLIDES: modelo:
+                 <li><a href="files/numerical-methods/slides1.pdf" target="_blank">Lecture 1: Title</a></li>   -->
+        <li class="empty">Coming soon.</li>
+      </ul>
+    </section>
+
+    <!-- ===== FIM DAS PÁGINAS: USEFUL MATERIAL ===== -->
 
 
 
@@ -751,15 +773,24 @@
      ====================================================================== -->
 
 <script>
-  const pages = ["home", "publications", "teaching", "resources"];
+  const resourcePages = ["labor-market-measures", "concentration", "firm-dynamics", "firm-performance", "market-power", "numerical-methods", "numerical-problem-sets", "numerical-slides"];
+  const teachingPages = ["micro1", "macro3"];
+  const pages = ["home", "publications", "teaching", "resources", ...resourcePages, ...teachingPages];
 
   function showPage() {
     let page = location.hash.replace("#", "") || "home";
-    if (page === "micro1" || page === "macro3") page = "teaching";
     if (!pages.includes(page)) page = "home";
 
     document.querySelectorAll(".page").forEach(s => s.classList.toggle("active", s.id === "page-" + page));
-    document.querySelectorAll(".nav a[data-page]").forEach(a => a.classList.toggle("active", a.dataset.page === page));
+    const navPage = resourcePages.includes(page) ? "resources" : teachingPages.includes(page) ? "teaching" : page;
+    document.querySelectorAll(".nav a[data-page]").forEach(a => {
+      const active = a.dataset.page === navPage;
+      a.classList.toggle("active", active);
+      if (active) a.setAttribute("aria-current", "page");
+      else a.removeAttribute("aria-current");
+    });
+    const heading = document.querySelector("#page-" + page + " h1[tabindex]");
+    if (heading) heading.focus({ preventScroll: true });
     window.scrollTo(0, 0);
   }
 

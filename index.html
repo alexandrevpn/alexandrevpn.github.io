@@ -1,821 +1,1234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Título que aparece na aba do navegador -->
-<title>Alexandre V. P. Nascimento</title>
+  <title>Alexandre V. P. Nascimento</title>
 
-<meta name="description" content="Alexandre V. P. Nascimento, economist. Research, teaching and materials.">
+  <meta
+    name="description"
+    content="Alexandre V. P. Nascimento, economist. Research, teaching and materials."
+  >
 
-<!-- Ícones (e-mail, LinkedIn, GitHub etc.). Não precisa mexer. -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
 
+  <style>
+    /* ==================== CORES ==================== */
 
-<!--
-##########################################################################
-##                                                                      ##
-##   ESTILO VISUAL (cores, fontes, espaçamentos)                        ##
-##                                                                      ##
-##   Você normalmente NÃO precisa mexer aqui.                           ##
-##   O conteúdo do site (textos, papers, materiais) fica mais abaixo,   ##
-##   procure por "CONTEÚDO DO SITE".                                    ##
-##                                                                      ##
-##########################################################################
--->
-<style>
-
-  /* ---------- Cores (modo claro) ---------- */
-  :root {
-    --bg: #ffffff;
-    --text: #3d4144;
-    --muted: #7a8288;
-    --rule: #e6e8ea;
-    --link: #2f6f9f;
-    --link-hover: #1d4a6b;
-    --accent-bg: #f4f6f8;
-  }
-
-  /* ---------- Cores (modo escuro, automático) ---------- */
-  @media (prefers-color-scheme: dark) {
     :root {
-      color-scheme: dark;
-      --bg: #1c1e21;
-      --text: #d6d9dc;
-      --muted: #9aa1a7;
-      --rule: #34373b;
-      --link: #7fb3dc;
-      --link-hover: #a9cdea;
-      --accent-bg: #25282c;
+      --bg: #ffffff;
+      --text: #3d4144;
+      --muted: #7a8288;
+      --rule: #e6e8ea;
+      --link: #2f6f9f;
+      --link-hover: #1d4a6b;
+      --accent-bg: #f4f6f8;
     }
-  }
 
-  /* ---------- Base ---------- */
-  * { box-sizing: border-box; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --bg: #1c1e21;
+        --text: #d6d9dc;
+        --muted: #9aa1a7;
+        --rule: #34373b;
+        --link: #7fb3dc;
+        --link-hover: #a9cdea;
+        --accent-bg: #25282c;
+      }
+    }
 
-  html { font-size: 17px; }
+    /* ==================== BASE ==================== */
 
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    line-height: 1.6;
-  }
+    * {
+      box-sizing: border-box;
+    }
 
-  a { color: var(--link); text-decoration: none; }
-  a:hover { color: var(--link-hover); text-decoration: underline; }
-  a:focus-visible, summary:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+    html {
+      font-size: 17px;
+    }
 
-  /* ---------- Barra do topo ---------- */
-  .masthead { border-bottom: 1px solid var(--rule); }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+      line-height: 1.6;
+    }
 
-  .masthead-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 1rem 1.25rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: .5rem 1.5rem;
-  }
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
 
-  .site-title { font-weight: 700; font-size: 1.15rem; color: var(--text); margin-right: auto; }
-  .site-title:hover { text-decoration: none; color: var(--link); }
+    a:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
+    }
 
-  .nav { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; font-size: .95rem; }
-  .nav a { color: var(--muted); }
-  .nav a.active { color: var(--text); font-weight: 600; }
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 2px solid var(--link);
+      outline-offset: 2px;
+    }
 
-  /* ---------- Layout (barra lateral + conteúdo) ---------- */
-  .layout {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 2rem 1.25rem 3rem;
-    display: grid;
-    grid-template-columns: 230px 1fr;
-    gap: 3rem;
-  }
+    /* ==================== MENU DO TOPO ==================== */
 
-  /* ---------- Barra lateral ---------- */
-  .sidebar { font-size: .9rem; }
+    .masthead {
+      border-bottom: 1px solid var(--rule);
+    }
 
-  .avatar {
-    width: 150px; height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    border: 1px solid var(--rule);
-  }
+    .masthead-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: .5rem 1.5rem;
+    }
 
-  .avatar-fallback {
-    width: 150px; height: 150px;
-    border-radius: 50%;
-    background: var(--accent-bg);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: var(--muted);
-  }
+    .site-title {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text);
+      margin-right: auto;
+    }
 
-  .sidebar h2 { font-size: 1.2rem; margin: 1rem 0 .1rem; }
-  .sidebar .role { color: var(--muted); margin: 0 0 1rem; }
+    .site-title:hover {
+      text-decoration: none;
+      color: var(--link);
+    }
 
-  .follow { list-style: none; padding: 0; margin: 0; }
-  .follow li { margin: .35rem 0; }
-  .follow i { width: 1.3em; color: var(--muted); }
-  .follow a { color: var(--text); }
-  .follow a:hover { color: var(--link); }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .25rem 1.25rem;
+      font-size: .95rem;
+    }
 
-  /* ---------- Conteúdo principal ---------- */
-  main { min-width: 0; max-width: 46rem; }
+    .nav a {
+      color: var(--muted);
+    }
 
-  main h1 { font-size: 1.6rem; margin: 0 0 1rem; }
-  main h2 { font-size: 1.2rem; margin: 2rem 0 .5rem; padding-bottom: .3rem; border-bottom: 1px solid var(--rule); }
-  main h3 { font-size: 1.05rem; margin: 1.5rem 0 .25rem; }
-  main h4 { font-size: .95rem; margin: 1rem 0 .1rem; color: var(--muted); font-weight: 600; }
+    .nav a.active {
+      color: var(--text);
+      font-weight: 600;
+    }
 
-  /* Cada aba é uma "page"; só a aba ativa aparece */
-  .page { display: none; }
-  .page.active { display: block; }
+    /* ==================== LAYOUT ==================== */
 
-  /* ---------- Papers ---------- */
-  .paper { margin: 0 0 1.4rem; }
-  .paper-title { font-weight: 600; }
-  .paper-meta { color: var(--muted); font-size: .92rem; }
-  .paper details { margin-top: .3rem; font-size: .92rem; }
-  .paper summary { cursor: pointer; color: var(--link); display: inline; }
-  .paper details p { background: var(--accent-bg); padding: .75rem 1rem; border-radius: 4px; margin: .5rem 0 0; }
+    .layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 3rem;
+    }
 
-  /* ---------- Listas de materiais ---------- */
-  .course-level { color: var(--muted); margin: 0 0 .5rem; }
-  ul.materials { padding-left: 1.2rem; margin: .25rem 0 0; }
-  ul.materials li { margin: .25rem 0; }
-  .empty { color: var(--muted); font-style: italic; }
+    /* ==================== BARRA LATERAL ==================== */
 
-  /* ---------- Navegação dos materiais ---------- */
-  .resource-categories h3 { margin: 0; }
-  .resource-categories a {
-    display: block;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--rule);
-  }
-  .back-link { margin: 0 0 1.25rem; font-size: .9rem; }
-  .page .materials li { margin-bottom: .85rem; }
+    .sidebar {
+      font-size: .9rem;
+    }
 
-  /* ---------- Rodapé ---------- */
-  footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .85rem; }
-  footer div { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      border: 1px solid var(--rule);
+    }
 
-  /* ---------- Celular ---------- */
-  @media (max-width: 760px) {
-    .layout { grid-template-columns: 1fr; gap: 1.5rem; padding-top: 1.25rem; }
-    .sidebar { display: grid; grid-template-columns: 90px 1fr; gap: 0 1rem; align-items: center; }
-    .avatar, .avatar-fallback { width: 90px; height: 90px; font-size: 1.6rem; }
-    .sidebar h2 { margin-top: 0; }
-    .follow { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .25rem 1rem; margin-top: .75rem; }
-    .follow li { margin: 0; }
-  }
+    .avatar-fallback {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: var(--accent-bg);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
 
-</style>
+    .sidebar h2 {
+      font-size: 1.2rem;
+      margin: 1rem 0 .1rem;
+    }
+
+    .sidebar .role {
+      color: var(--muted);
+      margin: 0 0 1rem;
+    }
+
+    .follow {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .follow li {
+      margin: .35rem 0;
+    }
+
+    .follow i {
+      width: 1.3em;
+      color: var(--muted);
+    }
+
+    .follow a {
+      color: var(--text);
+    }
+
+    .follow a:hover {
+      color: var(--link);
+    }
+
+    /* ==================== CONTEÚDO ==================== */
+
+    main {
+      min-width: 0;
+      max-width: 46rem;
+    }
+
+    main h1 {
+      font-size: 1.6rem;
+      margin: 0 0 1rem;
+    }
+
+    main h2 {
+      font-size: 1.2rem;
+      margin: 2rem 0 .5rem;
+      padding-bottom: .3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    main h3 {
+      font-size: 1.05rem;
+      margin: 1.5rem 0 .25rem;
+    }
+
+    main h4 {
+      font-size: .95rem;
+      margin: 1rem 0 .1rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    /* ==================== PAPERS ==================== */
+
+    .paper {
+      margin: 0 0 1.4rem;
+    }
+
+    .paper-title {
+      font-weight: 600;
+    }
+
+    .paper-meta {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .paper details {
+      margin-top: .3rem;
+      font-size: .92rem;
+    }
+
+    .paper summary {
+      cursor: pointer;
+      color: var(--link);
+      display: inline;
+    }
+
+    .paper details p {
+      background: var(--accent-bg);
+      padding: .75rem 1rem;
+      border-radius: 4px;
+      margin: .5rem 0 0;
+    }
+
+    /* ==================== MATERIAIS ==================== */
+
+    .course-level {
+      color: var(--muted);
+      margin: 0 0 .5rem;
+    }
+
+    ul.materials {
+      padding-left: 1.2rem;
+      margin: .25rem 0 0;
+    }
+
+    ul.materials li {
+      margin: .25rem 0 .85rem;
+    }
+
+    .empty {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .resource-categories h3 {
+      margin: 0;
+    }
+
+    .resource-categories a {
+      display: block;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* Títulos acompanhados de descrição na página Useful Material. */
+    .resource-overview h2 {
+      margin: 1.75rem 0 .5rem;
+      padding: 0;
+      border-bottom: 0;
+    }
+
+    .resource-overview h2 a {
+      padding: .5rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .resource-overview p {
+      margin: .5rem 0 1.5rem;
+    }
+
+    .back-link {
+      margin: 0 0 1.25rem;
+      font-size: .9rem;
+    }
+
+    /* ==================== RODAPÉ ==================== */
+
+    footer {
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    footer div {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.25rem;
+    }
+
+    /* ==================== CELULAR ==================== */
+
+    @media (max-width: 760px) {
+      .layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding-top: 1.25rem;
+      }
+
+      .sidebar {
+        display: grid;
+        grid-template-columns: 90px 1fr;
+        gap: 0 1rem;
+        align-items: center;
+      }
+
+      .avatar,
+      .avatar-fallback {
+        width: 90px;
+        height: 90px;
+        font-size: 1.6rem;
+      }
+
+      .sidebar h2 {
+        margin-top: 0;
+      }
+
+      .follow {
+        grid-column: 1 / -1;
+        display: flex;
+        flex-wrap: wrap;
+        gap: .25rem 1rem;
+        margin-top: .75rem;
+      }
+
+      .follow li {
+        margin: 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
+  <!-- ==================== MENU DO TOPO ==================== -->
 
+  <header class="masthead">
+    <div class="masthead-inner">
 
-<!--
-##########################################################################
-##########################################################################
-##                                                                      ##
-##   CONTEÚDO DO SITE COMEÇA AQUI                                       ##
-##                                                                      ##
-##   Regras de ouro:                                                    ##
-##                                                                      ##
-##   1. Cada aba fica entre uma linha  <section class="page" ...>       ##
-##      e uma linha  </section>.  NUNCA apague essas duas linhas.       ##
-##                                                                      ##
-##   2. Nomes de arquivos: sem espaços e sem acentos.                   ##
-##      Bom: lista1.pdf     Ruim: Lista 1 - Micro.pdf                   ##
-##                                                                      ##
-##   3. Textos de comentário (como este) não aparecem no site.         ##
-##                                                                      ##
-##   4. Para achar uma parte, use Ctrl + F e procure o nome dela,       ##
-##      por exemplo "ABA: TEACHING".                                    ##
-##                                                                      ##
-##########################################################################
-##########################################################################
--->
+      <a class="site-title" href="#home">
+        Alexandre V. P. Nascimento
+      </a>
 
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#publications" data-page="publications">Publications</a>
+        <a href="#teaching" data-page="teaching">Teaching</a>
+        <a href="#resources" data-page="resources">Useful Material</a>
+        <a href="files/CV.pdf" target="_blank" rel="noopener">CV</a>
+      </nav>
 
-
-<!-- ======================================================================
-     MENU DO TOPO
-     Para mudar o nome de uma aba, troque só o texto entre > e </a>.
-     ====================================================================== -->
-
-<header class="masthead">
-  <div class="masthead-inner">
-
-    <a class="site-title" href="#home">Alexandre V. P. Nascimento</a>
-
-    <nav class="nav">
-      <a href="#publications" data-page="publications">Publications</a>
-      <a href="#teaching"     data-page="teaching">Teaching</a>
-      <a href="#resources"    data-page="resources">Useful Material</a>
-      <a href="files/CV.pdf" target="_blank" rel="noopener">CV</a>   <!-- o CV fica em files/CV.pdf -->
-    </nav>
-
-  </div>
-</header>
-
-
-
-<div class="layout">
-
-
-
-  <!-- ======================================================================
-       BARRA LATERAL (foto, nome, cargo, links)
-       - Foto: arquivo files/foto.jpg
-       - Cargo: troque o texto "FGV EPGE"
-       ====================================================================== -->
-
-  <aside class="sidebar">
-
-    <img class="avatar" src="files/foto.jpg" alt="Alexandre V. P. Nascimento"
-         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-    <div class="avatar-fallback" aria-hidden="true">AN</div>
-
-    <div>
-      <h2>Alexandre V. P. Nascimento</h2>
-      <p class="role">FGV EPGE</p>
     </div>
+  </header>
 
-    <ul class="follow">
-      <li><a href="mailto:alexandrevpn.econ@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a></li>
-      <li><a href="https://www.linkedin.com/in/alexandre-val%C3%A9rio-b20923227/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
-      <li><a href="https://x.com/alexandrevpn_" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i> X</a></li>
-      <li><a href="https://github.com/alexandrevpn" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a></li>
-      <li><a href="files/CV.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i> CV</a></li>
-    </ul>
+  <div class="layout">
 
-  </aside>
+    <!-- ==================== BARRA LATERAL ==================== -->
 
+    <aside class="sidebar">
 
+      <img
+        class="avatar"
+        src="files/foto.jpg"
+        alt="Alexandre V. P. Nascimento"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      >
 
-  <main>
+      <div class="avatar-fallback" aria-hidden="true">AN</div>
 
+      <div>
+        <h2>Alexandre V. P. Nascimento</h2>
+        <p class="role">FGV EPGE</p>
+      </div>
 
+      <ul class="follow">
+        <li>
+          <a href="mailto:alexandrevpn.econ@gmail.com">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            Email
+          </a>
+        </li>
 
-    <!-- ######################################################################
-         ##                                                                  ##
-         ##   ABA: HOME (página inicial)                                     ##
-         ##                                                                  ##
-         ###################################################################### -->
+        <li>
+          <a
+            href="https://www.linkedin.com/in/alexandre-val%C3%A9rio-b20923227/"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+            LinkedIn
+          </a>
+        </li>
 
-    <section class="page" id="page-home">
+        <li>
+          <a
+            href="https://x.com/alexandrevpn_"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+            X
+          </a>
+        </li>
 
-      <p><strong>Welcome to my homepage!</strong></p>
+        <li>
+          <a
+            href="https://github.com/alexandrevpn"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
+            GitHub
+          </a>
+        </li>
 
-      <!-- >>> Sua bio. Edite o texto abaixo à vontade. -->
-      <p>
-        I am an economist at <a href="https://epge.fgv.br/" target="_blank" rel="noopener">FGV EPGE</a> in Rio de Janeiro.
-        My research is in labor economics, with a focus on informality, bargaining, and labor market power
-        in developing economies, using Brazil as the main empirical setting.
-      </p>
-
-      <p><strong>Research interests:</strong></p>
-
-      <!-- >>> Para adicionar um interesse, copie uma linha <li>...</li> -->
-      <ul>
-        <li>Labor Economics</li>
-        <li>Macroeconomics</li>
+        <li>
+          <a href="files/CV.pdf" target="_blank" rel="noopener">
+            <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+            CV
+          </a>
+        </li>
       </ul>
 
-    </section>
-    <!-- ===== FIM DA ABA: HOME ===== -->
+    </aside>
 
+    <main>
 
+      <!-- ==================== HOME ==================== -->
 
-    <!-- ######################################################################
-         ##                                                                  ##
-         ##   ABA: PUBLICATIONS                                              ##
-         ##                                                                  ##
-         ###################################################################### -->
+      <section class="page" id="page-home">
 
-    <section class="page" id="page-publications">
+        <p><strong>Welcome to my homepage!</strong></p>
 
-      <h1>Publications</h1>
+        <p>
+          I am an economist at
+          <a href="https://epge.fgv.br/" target="_blank" rel="noopener">
+            FGV EPGE</a>
+          in Rio de Janeiro.
+          My research is in labor economics, with a focus on informality,
+          bargaining, and labor market power in developing economies,
+          using Brazil as the main empirical setting.
+        </p>
 
+        <p><strong>Research interests:</strong></p>
 
-      <!-- ------------------------------------------------------------------
-           WORKING PAPERS
-           ------------------------------------------------------------------ -->
+        <ul>
+          <li>Labor Economics</li>
+          <li>Macroeconomics</li>
+        </ul>
 
-      <h2>Working papers</h2>
+      </section>
 
+      <!-- ==================== PUBLICATIONS ==================== -->
 
-      <!-- >>> Paper 1 -->
-      <div class="paper">
-        <div class="paper-title">The Structure of Outside Options in Segmented Labor Markets</div>
-        <div class="paper-meta">with Valdemar Neto</div>
-        <!-- Para pôr o PDF, adicione na linha de cima, depois do nome:
-             &nbsp; <a href="files/papers/ooi.pdf" target="_blank">[PDF]</a>       -->
-        <details>
-          <summary>Abstract</summary>
-          <p>Paste the abstract here.</p>   <!-- >>> COLE O ABSTRACT AQUI -->
-        </details>
-      </div>
+      <section class="page" id="page-publications">
 
+        <h1>Publications</h1>
 
-      <!-- ------------------------------------------------------------------
-           WORK IN PROGRESS
-           ------------------------------------------------------------------ -->
+        <h2>Working papers</h2>
 
-      <h2>Work in progress</h2>
+        <div class="paper">
+          <div class="paper-title">
+            The Structure of Outside Options in Segmented Labor Markets
+          </div>
 
+          <div class="paper-meta">with Valdemar Neto</div>
 
-      <!-- >>> Paper 2 -->
-      <div class="paper">
-        <div class="paper-title">Formalization and Financial Deepening: Evidence from Brazil's MEI Program</div>
-        <div class="paper-meta">with Valdemar Neto and [coautor]</div>   <!-- >>> TROQUE [coautor] PELO NOME -->
-      </div>
+          <!--
+          Quando o PDF estiver disponível, adicione:
+          <a href="files/papers/ooi.pdf" target="_blank" rel="noopener">[PDF]</a>
+          -->
 
+          <details>
+            <summary>Abstract</summary>
+            <p>Paste the abstract here.</p>
+          </details>
+        </div>
 
-      <!-- >>> MODELO PARA UM NOVO PAPER: copie o bloco abaixo (sem as linhas de comentário)
-               e cole acima, dentro de "Working papers" ou "Work in progress".
+        <h2>Work in progress</h2>
 
-      <div class="paper">
-        <div class="paper-title">Título do paper</div>
-        <div class="paper-meta">with Coautor &nbsp; <a href="files/papers/arquivo.pdf" target="_blank">[PDF]</a></div>
-        <details>
-          <summary>Abstract</summary>
-          <p>Texto do abstract.</p>
-        </details>
-      </div>
+        <div class="paper">
+          <div class="paper-title">
+            Formalization and Financial Deepening:
+            Evidence from Brazil's MEI Program
+          </div>
 
+          <!-- Substitua [coautor] pelo nome correspondente. -->
+          <div class="paper-meta">
+            with Valdemar Neto and [coautor]
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ==================== TEACHING ==================== -->
+
+      <section class="page" id="page-teaching">
+
+        <h1>Teaching</h1>
+
+        <h2>Instructor</h2>
+        <p class="empty">No courses taught yet.</p>
+
+        <h2>Teaching Assistant</h2>
+
+        <nav
+          class="resource-categories"
+          aria-label="Teaching assistant courses"
+        >
+          <h3>
+            <a href="#micro1">
+              Microeconomics I (Undergraduate Level)
+            </a>
+          </h3>
+          <p class="course-level">FGV EPGE, Fall 2024</p>
+
+          <h3>
+            <a href="#macro3">
+              Macroeconomic Theory III (Graduate Level)
+            </a>
+          </h3>
+          <p class="course-level">FGV EPGE, Fall 2024</p>
+        </nav>
+
+      </section>
+
+      <!-- ==================== MICROECONOMICS I ==================== -->
+
+      <section class="page" id="page-micro1">
+
+        <p class="back-link">
+          <a href="#teaching">← Back to Teaching</a>
+        </p>
+
+        <h1 tabindex="-1">Microeconomics I (Undergraduate Level)</h1>
+
+        <p class="course-level">FGV EPGE, Fall 2024</p>
+
+        <ul class="materials">
+          <!--
+          Quando adicionar o primeiro material, remova o aviso abaixo.
+          Exemplo:
+          <li>
+            <a href="files/micro1/lista1.pdf" target="_blank" rel="noopener">
+              Problem Set 1
+            </a>
+          </li>
+          -->
+          <li class="empty">Materials will be posted here.</li>
+        </ul>
+
+      </section>
+
+      <!-- ==================== MACROECONOMIC THEORY III ==================== -->
+
+      <section class="page" id="page-macro3">
+
+        <p class="back-link">
+          <a href="#teaching">← Back to Teaching</a>
+        </p>
+
+        <h1 tabindex="-1">Macroeconomic Theory III (Graduate Level)</h1>
+
+        <p class="course-level">FGV EPGE, Fall 2024</p>
+
+        <ul class="materials">
+          <!--
+          Quando adicionar o primeiro material, remova o aviso abaixo.
+          Exemplo:
+          <li>
+            <a href="files/macro3/lista1.pdf" target="_blank" rel="noopener">
+              Problem Set 1
+            </a>
+          </li>
+          -->
+          <li class="empty">Materials will be posted here.</li>
+        </ul>
+
+      </section>
+
+      <!-- ==================== USEFUL MATERIAL ==================== -->
+
+      <section class="page" id="page-resources">
+
+        <h1>Useful Material</h1>
+
+        <nav
+          class="resource-categories resource-overview"
+          aria-label="Useful materials"
+        >
+
+          <h2>
+            <a href="#labor-market-measures">
+              Useful Labor Market Measures
+            </a>
+          </h2>
+
+          <p>
+            A collection of statistics and indicators useful for empirical
+            research in labor economics, covering market concentration,
+            firm dynamics, job flows, productivity, and market power.
+            Methodological notes and practical examples in R will be
+            added progressively.
+          </p>
+
+          <h2>
+            <a href="#numerical-methods">
+              Numerical Methods (2023)
+            </a>
+          </h2>
+
+          <p>
+            Materials from the Numerical Methods course I took at FGV EPGE
+            in 2023. The course focused on computational methods for solving
+            structural economic models. Problem sets, slides, and code
+            implementations will be added progressively.
+          </p>
+
+        </nav>
+
+      </section>
+
+      <!-- ==================== LABOR MARKET MEASURES: MENU ==================== -->
+
+      <section class="page" id="page-labor-market-measures">
+
+        <p class="back-link">
+          <a href="#resources">← Back to Useful Material</a>
+        </p>
+
+        <h1 tabindex="-1">Useful Labor Market Measures</h1>
+
+        <nav
+          class="resource-categories"
+          aria-label="Labor market materials"
+        >
+          <h3>
+            <a href="#concentration">Concentration Measures</a>
+          </h3>
+
+          <h3>
+            <a href="#firm-dynamics">Firm Dynamics and Job Flows</a>
+          </h3>
+
+          <h3>
+            <a href="#firm-performance">Firm Performance</a>
+          </h3>
+
+          <h3>
+            <a href="#market-power">Market Power</a>
+          </h3>
+        </nav>
+
+      </section>
+
+      <!--
+      MATERIAIS DAS MEDIDAS
+      Pasta: files/labor-market-measures/
+
+      Para disponibilizar cada medida:
+      1. Envie o PDF e o script R para a pasta.
+      2. Remova os marcadores de comentário ao redor dos links.
+      3. Remova o aviso "Notes (PDF) and R code: coming soon.".
       -->
 
-    </section>
-    <!-- ===== FIM DA ABA: PUBLICATIONS ===== -->
+      <!-- ==================== CONCENTRATION MEASURES ==================== -->
 
+      <section class="page" id="page-concentration">
 
+        <p class="back-link">
+          <a href="#labor-market-measures">
+            ← Back to Useful Labor Market Measures
+          </a>
+        </p>
 
-    <!-- ######################################################################
-         ##                                                                  ##
-         ##   ABA: TEACHING                                                  ##
-         ##                                                                  ##
-         ##   Arquivos dos cursos:                                           ##
-         ##     Microeconomics I        ->  pasta files/micro1/              ##
-         ##     Macroeconomic Theory III ->  pasta files/macro3/             ##
-         ##                                                                  ##
-         ###################################################################### -->
+        <h1 tabindex="-1">Concentration Measures</h1>
 
-    <section class="page" id="page-teaching">
-      <h1>Teaching</h1>
-      <h2>Instructor</h2>
-      <p class="empty">No courses taught yet.</p>
-      <h2>Teaching Assistant</h2>
-      <nav class="resource-categories" aria-label="Teaching assistant courses">
-        <h3><a href="#micro1">Microeconomics I (Undergraduate Level)</a></h3>
-        <p class="course-level">FGV EPGE, Fall 2024</p>
-        <h3><a href="#macro3">Macroeconomic Theory III (Graduate Level)</a></h3>
-        <p class="course-level">FGV EPGE, Fall 2024</p>
-      </nav>
-    </section>
+        <ul class="materials">
 
-    <!-- Materiais da monitoria: Microeconomics I (Undergraduate Level) -->
-    <section class="page" id="page-micro1">
-      <p class="back-link"><a href="#teaching">← Back to Teaching</a></p>
-      <h1 tabindex="-1">Microeconomics I (Undergraduate Level)</h1>
-      <p class="course-level">FGV EPGE, Fall 2024</p>
-      <ul class="materials">
-        <!-- >>> MATERIAIS DE MICRO I: apague a linha "Materials will be posted here"
-                 quando adicionar o primeiro material. Modelo:
-                 <li><a href="files/micro1/lista1.pdf" target="_blank">Problem Set 1</a></li>   -->
-        <li class="empty">Materials will be posted here.</li>
-      </ul>
-    </section>
+          <li>
+            <strong>Revenue Market Share</strong>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/revenue-market-share.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/revenue-market-share.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
 
-    <!-- Materiais da monitoria: Macroeconomic Theory III (Graduate Level) -->
-    <section class="page" id="page-macro3">
-      <p class="back-link"><a href="#teaching">← Back to Teaching</a></p>
-      <h1 tabindex="-1">Macroeconomic Theory III (Graduate Level)</h1>
-      <p class="course-level">FGV EPGE, Fall 2024</p>
-      <ul class="materials">
-        <!-- >>> MATERIAIS DE MACRO III: mesmo formato. Modelo:
-                 <li><a href="files/macro3/lista1.pdf" target="_blank">Problem Set 1</a></li>   -->
-        <li class="empty">Materials will be posted here.</li>
-      </ul>
-    </section>
+          <li>
+            <strong>Trade-Adjusted Revenue Market Share</strong>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/trade-adjusted-market-share.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/trade-adjusted-market-share.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
 
-    <!-- ===== FIM DA ABA: TEACHING ===== -->
+          <li>
+            <strong>Herfindahl–Hirschman Index (HHI)</strong>
+            <br><small>Including the trade-adjusted HHI.</small>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/hhi.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/hhi.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
 
+          <li>
+            <strong>HHI Decomposition</strong>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/hhi-decomposition.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/hhi-decomposition.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
 
+          <li>
+            <strong>Concentration Ratios (CR4–CR10)</strong>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/concentration-ratios.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/concentration-ratios.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
 
-    <!-- ######################################################################
-         ##                                                                  ##
-         ##   ABA: USEFUL MATERIAL                                           ##
-         ##                                                                  ##
-         ##   Arquivos:                                                      ##
-         ##     Numerical Methods     ->  pasta files/numerical-methods/     ##
-         ##     Labor Market Measures -> files/labor-market-measures/        ##
-         ##                                                                  ##
-         ##   Códigos: pode subir o arquivo (.jl, .R, .py, .m) na pasta,     ##
-         ##   ou colocar o link de um repositório do GitHub.                 ##
-         ##                                                                  ##
-         ###################################################################### -->
+          <li>
+            <strong>Market Shares of the Top 1%, 10%, and 25% of Firms</strong>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/top-firms-shares.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/top-firms-shares.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
 
-    <!-- Useful Material: clique em uma categoria para abrir seus materiais. -->
-    <section class="page" id="page-resources">
-      <h1>Useful Material</h1>
-      <nav class="resource-categories" aria-label="Useful materials">
+          <li>
+            <strong>Market Share of the Bottom 50% of Firms</strong>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/bottom-half-share.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/bottom-half-share.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
 
-  <h2>
-    <a href="#labor-market-measures">Useful Labor Market Measures</a>
-  </h2>
-  <p>
-    A collection of statistics and indicators useful for empirical research
-    in labor economics, covering market concentration, firm dynamics,
-    job flows, productivity, and market power. Materials include
-    methodological notes and practical examples in R.
-  </p>
+          <li>
+            <strong>Dominance Index</strong>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/dominance-index.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/dominance-index.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
 
-  <h2>
-    <a href="#numerical-methods">Numerical Methods (2023)</a>
-  </h2>
-  <p>
-    Materials from the Numerical Methods course I took at FGV EPGE in 2023.
-    The course focused on computational methods for solving structural
-    economic models. This collection includes problem sets, slides,
-    and code implementations.
-  </p>
+        </ul>
 
-</nav>
-    </section>
+      </section>
 
-    <section class="page" id="page-labor-market-measures">
-      <p class="back-link"><a href="#resources">← Back to Useful Material</a></p>
-      <h1 tabindex="-1">Useful Labor Market Measures</h1>
-      <nav class="resource-categories" aria-label="Labor market materials">
-        <h3><a href="#concentration">Concentration Measures</a></h3>
-        <h3><a href="#firm-dynamics">Firm Dynamics and Job Flows</a></h3>
-        <h3><a href="#firm-performance">Firm Performance</a></h3>
-        <h3><a href="#market-power">Market Power</a></h3>
-      </nav>
-    </section>
+      <!-- ==================== FIRM DYNAMICS AND JOB FLOWS ==================== -->
 
-    <!-- Páginas das categorias. Publique os arquivos antes de ativar seus links.
-         Arquivos: files/labor-market-measures/
-         Para cada medida, descomente os links e remova a linha "coming soon". -->
+      <section class="page" id="page-firm-dynamics">
 
-    <section class="page" id="page-concentration">
-      <p class="back-link"><a href="#labor-market-measures">← Back to Useful Labor Market Measures</a></p>
-      <h1 tabindex="-1">Concentration Measures</h1>
-      <ul class="materials">
-        <li>
-          <strong>Revenue Market Share</strong>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+        <p class="back-link">
+          <a href="#labor-market-measures">
+            ← Back to Useful Labor Market Measures
+          </a>
+        </p>
+
+        <h1 tabindex="-1">Firm Dynamics and Job Flows</h1>
+
+        <ul class="materials">
+
+          <li>
+            <strong>Turnover at the Top</strong>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/turnover-at-the-top.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/turnover-at-the-top.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
+
+          <li>
+            <strong>Market Share Reshuffling among Incumbents</strong>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/market-share-reshuffling.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/market-share-reshuffling.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
+
+          <li>
+            <strong>Firm Entry Rate</strong>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/firm-entry-rate.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/firm-entry-rate.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
+
+          <li>
+            <strong>Firm Exit Rate</strong>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/firm-exit-rate.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/firm-exit-rate.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
+
+          <li>
+            <strong>Establishment Size</strong>
+            <br><small>Average employment across two consecutive periods.</small>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/establishment-size.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/establishment-size.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
+
+          <li>
+            <strong>Employment Growth Rate</strong>
+            <br><small>Symmetric growth rate at the firm or establishment level.</small>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/employment-growth.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/employment-growth.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
+
+          <li>
+            <strong>Gross Job Creation Rate</strong>
+            <br><small>Including contributions from entrants and continuing firms.</small>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/job-creation.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/job-creation.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
+
+          <li>
+            <strong>Gross Job Destruction Rate</strong>
+            <br><small>Including contributions from exiting and continuing firms.</small>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/job-destruction.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/job-destruction.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
+
+          <li>
+            <strong>Gross Job Reallocation Rate</strong>
+            <br><small>Including the associated bounds on worker reallocation.</small>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/job-reallocation.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/job-reallocation.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
+
+          <li>
+            <strong>Net Employment Growth Rate</strong>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/net-employment-growth.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/net-employment-growth.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
+
+          <li>
+            <strong>Excess Job Reallocation Rate</strong>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/excess-job-reallocation.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/excess-job-reallocation.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
+
+          <li>
+            <strong>Persistence of Job Creation and Destruction</strong>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/job-flow-persistence.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/job-flow-persistence.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
+
+          <li>
+            <strong>Decomposition of Excess Job Reallocation</strong>
+            <br><small>Within-sector and between-sector components.</small>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/excess-reallocation-decomposition.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/excess-reallocation-decomposition.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
+
+        </ul>
+
+      </section>
+
+      <!-- ==================== FIRM PERFORMANCE ==================== -->
+
+      <section class="page" id="page-firm-performance">
+
+        <p class="back-link">
+          <a href="#labor-market-measures">
+            ← Back to Useful Labor Market Measures
+          </a>
+        </p>
+
+        <h1 tabindex="-1">Firm Performance</h1>
+
+        <ul class="materials">
+
+          <li>
+            <strong>Total Factor Productivity (TFP)</strong>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/tfp.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/tfp.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
+
+          <li>
+            <strong>Value Added per Worker</strong>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/value-added-per-worker.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/value-added-per-worker.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
+
+          <li>
+            <strong>Firm Profit</strong>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/firm-profit.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/firm-profit.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
+
+          <li>
+            <strong>Profit Rate</strong>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/profit-rate.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/profit-rate.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
+
+        </ul>
+
+      </section>
+
+      <!-- ==================== MARKET POWER ==================== -->
+
+      <section class="page" id="page-market-power">
+
+        <p class="back-link">
+          <a href="#labor-market-measures">
+            ← Back to Useful Labor Market Measures
+          </a>
+        </p>
+
+        <h1 tabindex="-1">Market Power</h1>
+
+        <ul class="materials">
+
+          <li>
+            <strong>Markup Estimation: Accounting Approach</strong>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/accounting-markups.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/accounting-markups.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
+
+          <li>
+            <strong>Markup Estimation: Production Function Approach</strong>
+            <br><small>
+              Factor elasticities from cost shares or proxy methods;
+              Cobb–Douglas and translog specifications.
+            </small>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/production-markups.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/production-markups.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
+
+          <li>
+            <strong>Labor Markdown</strong>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/labor-markdown.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/labor-markdown.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
+
+          <li>
+            <strong>Price–Cost Margin (PCM)</strong>
+            <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+            <!--
+            <br><a href="files/labor-market-measures/price-cost-margin.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
+            · <a href="files/labor-market-measures/price-cost-margin.R" target="_blank" rel="noopener">R code</a>
+            -->
+          </li>
+
+        </ul>
+
+      </section>
+
+      <!-- ==================== NUMERICAL METHODS: MENU ==================== -->
+
+      <section class="page" id="page-numerical-methods">
+
+        <p class="back-link">
+          <a href="#resources">← Back to Useful Material</a>
+        </p>
+
+        <h1 tabindex="-1">Numerical Methods (2023)</h1>
+
+        <nav
+          class="resource-categories"
+          aria-label="Numerical Methods materials"
+        >
+          <h3>
+            <a href="#numerical-problem-sets">Problem sets</a>
+          </h3>
+
+          <h3>
+            <a href="#numerical-slides">Slides</a>
+          </h3>
+        </nav>
+
+      </section>
+
+      <!-- ==================== NUMERICAL METHODS: PROBLEM SETS ==================== -->
+
+      <section class="page" id="page-numerical-problem-sets">
+
+        <p class="back-link">
+          <a href="#numerical-methods">← Back to Numerical Methods</a>
+        </p>
+
+        <h1 tabindex="-1">
+          Numerical Methods (2023): Problem sets
+        </h1>
+
+        <ul class="materials">
           <!--
-          <br><a href="files/labor-market-measures/revenue-market-share.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/revenue-market-share.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Trade-Adjusted Revenue Market Share</strong>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/trade-adjusted-market-share.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/trade-adjusted-market-share.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Herfindahl–Hirschman Index (HHI)</strong>
-          <br><small>Including the trade-adjusted HHI.</small>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/hhi.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/hhi.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>HHI Decomposition</strong>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/hhi-decomposition.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/hhi-decomposition.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Concentration Ratios (CR4–CR10)</strong>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/concentration-ratios.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/concentration-ratios.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Market Shares of the Top 1%, 10%, and 25% of Firms</strong>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/top-firms-shares.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/top-firms-shares.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Market Share of the Bottom 50% of Firms</strong>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/bottom-half-share.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/bottom-half-share.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Dominance Index</strong>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/dominance-index.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/dominance-index.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-      </ul>
-    </section>
+          Quando adicionar o primeiro material, remova o aviso abaixo.
+          Exemplos:
 
-    <section class="page" id="page-firm-dynamics">
-      <p class="back-link"><a href="#labor-market-measures">← Back to Useful Labor Market Measures</a></p>
-      <h1 tabindex="-1">Firm Dynamics and Job Flows</h1>
-      <ul class="materials">
-        <li>
-          <strong>Turnover at the Top</strong>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/turnover-at-the-top.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/turnover-at-the-top.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Market Share Reshuffling among Incumbents</strong>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/market-share-reshuffling.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/market-share-reshuffling.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Firm Entry Rate</strong>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/firm-entry-rate.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/firm-entry-rate.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Firm Exit Rate</strong>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/firm-exit-rate.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/firm-exit-rate.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Establishment Size</strong>
-          <br><small>Average employment across two consecutive periods.</small>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/establishment-size.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/establishment-size.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Employment Growth Rate</strong>
-          <br><small>Symmetric growth rate at the firm or establishment level.</small>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/employment-growth.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/employment-growth.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Gross Job Creation Rate</strong>
-          <br><small>Including contributions from entrants and continuing firms.</small>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/job-creation.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/job-creation.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Gross Job Destruction Rate</strong>
-          <br><small>Including contributions from exiting and continuing firms.</small>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/job-destruction.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/job-destruction.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Gross Job Reallocation Rate</strong>
-          <br><small>Including the associated bounds on worker reallocation.</small>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/job-reallocation.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/job-reallocation.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Net Employment Growth Rate</strong>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/net-employment-growth.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/net-employment-growth.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Excess Job Reallocation Rate</strong>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/excess-job-reallocation.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/excess-job-reallocation.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Persistence of Job Creation and Destruction</strong>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/job-flow-persistence.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/job-flow-persistence.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Decomposition of Excess Job Reallocation</strong>
-          <br><small>Within-sector and between-sector components.</small>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/excess-reallocation-decomposition.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/excess-reallocation-decomposition.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-      </ul>
-    </section>
+          <li>
+            <a href="files/numerical-methods/ps1.pdf" target="_blank" rel="noopener">
+              Problem Set 1
+            </a>
+          </li>
 
-    <section class="page" id="page-firm-performance">
-      <p class="back-link"><a href="#labor-market-measures">← Back to Useful Labor Market Measures</a></p>
-      <h1 tabindex="-1">Firm Performance</h1>
-      <ul class="materials">
-        <li>
-          <strong>Total Factor Productivity (TFP)</strong>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/tfp.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/tfp.R" target="_blank" rel="noopener">R code</a>
+          <li>
+            <a href="files/numerical-methods/ps1_code.jl" target="_blank" rel="noopener">
+              Problem Set 1 (code)
+            </a>
+          </li>
           -->
-        </li>
-        <li>
-          <strong>Value Added per Worker</strong>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
+          <li class="empty">Coming soon.</li>
+        </ul>
+
+      </section>
+
+      <!-- ==================== NUMERICAL METHODS: SLIDES ==================== -->
+
+      <section class="page" id="page-numerical-slides">
+
+        <p class="back-link">
+          <a href="#numerical-methods">← Back to Numerical Methods</a>
+        </p>
+
+        <h1 tabindex="-1">
+          Numerical Methods (2023): Slides
+        </h1>
+
+        <ul class="materials">
           <!--
-          <br><a href="files/labor-market-measures/value-added-per-worker.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/value-added-per-worker.R" target="_blank" rel="noopener">R code</a>
+          Quando adicionar o primeiro material, remova o aviso abaixo.
+          Exemplo:
+
+          <li>
+            <a href="files/numerical-methods/slides1.pdf" target="_blank" rel="noopener">
+              Lecture 1: Title
+            </a>
+          </li>
           -->
-        </li>
-        <li>
-          <strong>Firm Profit</strong>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/firm-profit.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/firm-profit.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Profit Rate</strong>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/profit-rate.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/profit-rate.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-      </ul>
-    </section>
+          <li class="empty">Coming soon.</li>
+        </ul>
 
-    <section class="page" id="page-market-power">
-      <p class="back-link"><a href="#labor-market-measures">← Back to Useful Labor Market Measures</a></p>
-      <h1 tabindex="-1">Market Power</h1>
-      <ul class="materials">
-        <li>
-          <strong>Markup Estimation: Accounting Approach</strong>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/accounting-markups.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/accounting-markups.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Markup Estimation: Production Function Approach</strong>
-          <br><small>Factor elasticities from cost shares or proxy methods; Cobb–Douglas and translog specifications.</small>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/production-markups.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/production-markups.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Labor Markdown</strong>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/labor-markdown.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/labor-markdown.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-        <li>
-          <strong>Price–Cost Margin (PCM)</strong>
-          <br><small class="empty">Notes (PDF) and R code: coming soon.</small>
-          <!--
-          <br><a href="files/labor-market-measures/price-cost-margin.pdf" target="_blank" rel="noopener">Notes (PDF)</a>
-          · <a href="files/labor-market-measures/price-cost-margin.R" target="_blank" rel="noopener">R code</a>
-          -->
-        </li>
-      </ul>
-    </section>
+      </section>
 
-    <section class="page" id="page-numerical-methods">
-      <p class="back-link"><a href="#resources">← Back to Useful Material</a></p>
-      <h1 tabindex="-1">Numerical Methods (2023)</h1>
-      <nav class="resource-categories" aria-label="Numerical Methods materials">
-        <h3><a href="#numerical-problem-sets">Problem sets</a></h3>
-        <h3><a href="#numerical-slides">Slides</a></h3>
-      </nav>
-    </section>
+    </main>
 
-    <section class="page" id="page-numerical-problem-sets">
-      <p class="back-link"><a href="#numerical-methods">← Back to Numerical Methods</a></p>
-      <h1 tabindex="-1">Numerical Methods (2023): Problem sets</h1>
-      <ul class="materials">
-        <!-- >>> PROBLEM SETS: apague a linha "Coming soon" ao adicionar o primeiro. Modelos:
-                 <li><a href="files/numerical-methods/ps1.pdf" target="_blank">Problem Set 1</a></li>
-                 <li><a href="files/numerical-methods/ps1_code.jl" target="_blank">Problem Set 1 (code)</a></li>   -->
-        <li class="empty">Coming soon.</li>
-      </ul>
-    </section>
+  </div>
 
-    <section class="page" id="page-numerical-slides">
-      <p class="back-link"><a href="#numerical-methods">← Back to Numerical Methods</a></p>
-      <h1 tabindex="-1">Numerical Methods (2023): Slides</h1>
-      <ul class="materials">
-        <!-- >>> SLIDES: modelo:
-                 <li><a href="files/numerical-methods/slides1.pdf" target="_blank">Lecture 1: Title</a></li>   -->
-        <li class="empty">Coming soon.</li>
-      </ul>
-    </section>
+  <!-- ==================== RODAPÉ ==================== -->
 
-    <!-- ===== FIM DAS PÁGINAS: USEFUL MATERIAL ===== -->
+  <footer>
+    <div>© 2026 Alexandre V. P. Nascimento</div>
+  </footer>
 
+  <!-- ==================== NAVEGAÇÃO ENTRE AS PÁGINAS ==================== -->
 
+  <script>
+    const resourcePages = [
+      "labor-market-measures",
+      "concentration",
+      "firm-dynamics",
+      "firm-performance",
+      "market-power",
+      "numerical-methods",
+      "numerical-problem-sets",
+      "numerical-slides"
+    ];
 
-  </main>
-</div>
+    const teachingPages = [
+      "micro1",
+      "macro3"
+    ];
 
+    const pages = [
+      "home",
+      "publications",
+      "teaching",
+      "resources",
+      ...resourcePages,
+      ...teachingPages
+    ];
 
+    function showPage() {
+      let page = location.hash.replace("#", "") || "home";
 
-<!-- ======================================================================
-     RODAPÉ
-     ====================================================================== -->
+      if (!pages.includes(page)) {
+        page = "home";
+      }
 
-<footer><div>© 2026 Alexandre V. P. Nascimento</div></footer>
+      document.querySelectorAll(".page").forEach(section => {
+        section.classList.toggle(
+          "active",
+          section.id === "page-" + page
+        );
+      });
 
+      let navPage = page;
 
+      if (resourcePages.includes(page)) {
+        navPage = "resources";
+      } else if (teachingPages.includes(page)) {
+        navPage = "teaching";
+      }
 
-<!-- ======================================================================
-     CÓDIGO QUE TROCA AS ABAS. NÃO PRECISA MEXER.
-     ====================================================================== -->
+      document.querySelectorAll(".nav a[data-page]").forEach(link => {
+        const active = link.dataset.page === navPage;
 
-<script>
-  const resourcePages = ["labor-market-measures", "concentration", "firm-dynamics", "firm-performance", "market-power", "numerical-methods", "numerical-problem-sets", "numerical-slides"];
-  const teachingPages = ["micro1", "macro3"];
-  const pages = ["home", "publications", "teaching", "resources", ...resourcePages, ...teachingPages];
+        link.classList.toggle("active", active);
 
-  function showPage() {
-    let page = location.hash.replace("#", "") || "home";
-    if (!pages.includes(page)) page = "home";
+        if (active) {
+          link.setAttribute("aria-current", "page");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
 
-    document.querySelectorAll(".page").forEach(s => s.classList.toggle("active", s.id === "page-" + page));
-    const navPage = resourcePages.includes(page) ? "resources" : teachingPages.includes(page) ? "teaching" : page;
-    document.querySelectorAll(".nav a[data-page]").forEach(a => {
-      const active = a.dataset.page === navPage;
-      a.classList.toggle("active", active);
-      if (active) a.setAttribute("aria-current", "page");
-      else a.removeAttribute("aria-current");
-    });
-    const heading = document.querySelector("#page-" + page + " h1[tabindex]");
-    if (heading) heading.focus({ preventScroll: true });
-    window.scrollTo(0, 0);
-  }
+      const heading = document.querySelector(
+        "#page-" + page + " h1[tabindex]"
+      );
 
-  window.addEventListener("hashchange", showPage);
-  showPage();
-</script>
+      if (heading) {
+        heading.focus({ preventScroll: true });
+      }
+
+      window.scrollTo(0, 0);
+    }
+
+    window.addEventListener("hashchange", showPage);
+
+    showPage();
+  </script>
 
 </body>
 </html>
